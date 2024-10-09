@@ -1,0 +1,4 @@
+flask
+ollama
+groq
+python-dotenv
