@@ -15,30 +15,38 @@ class Nutritionist:
     def __init__(self):
         # Initialize the Groq API client with an API key from the environment variables
         self.client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-        pass
 
     # Method to get nutritional advice based on a list of ingredients
     def get_advice_from_ingredients(self, ingredients):
         # Construct the prompt for the model
-        prompt = f"""You are a nutritionist dietitian. Based on the following ingredients, give any possible health risks and suggest additional ingredients that would complement the meal and improve its nutritional value. Your response must be in valid JSON format with the following structure:
+        prompt = f"""You are a nutritionist dietitian. Based on the following ingredients, identify which ingredients are suitable and which are unsuitable for the user's health profile. Additionally, provide suggestions on how to make the food healthier by adding specific ingredients. Your response must be in valid JSON format with the following structure:
 
-        {{
-        "suggested_ingredients": ["ingredient1", "ingredient2", "ingredient3"],
-        "explanation": "Your explanation here",
-        "health_risks": "Your health risks explanation here"
-        }}
+{{
+    "suitable_ingredients": [
+        {{"ingredient": "ingredient1", "explanation": "Reason for suitability"}},
+        {{"ingredient": "ingredient2", "explanation": "Reason for suitability"}}
+    ],
+    "unsuitable_ingredients": [
+        {{"ingredient": "ingredient3", "reason": "Reason for unsuitability"}},
+        {{"ingredient": "ingredient4", "reason": "Reason for unsuitability"}}
+    ],
+    "health_suggestions": [
+        {{"suggestion": "Add ingredient5 for additional vitamins", "benefit": "Increases nutrient density"}},
+        {{"suggestion": "Replace ingredient6 with a healthier alternative", "benefit": "Reduces unhealthy fats"}}
+    ]
+}}
 
-        If you cannot process the ingredients or encounter any issues, respond with a JSON object containing an 'error' key, like this:
+If you cannot process the ingredients or encounter any issues, respond with a JSON object containing an 'error' key, like this:
 
-        {{
-        "error": "Description of the error or issue encountered"
-        }}
+{{
+    "error": "Description of the error or issue encountered"
+}}
 
-        Ensure your response can be parsed by Python's json.loads() function.
+Ensure your response can be parsed by Python's json.loads() function.
 
-        Ingredients: {ingredients}
+Ingredients: {ingredients}
 
-        JSON Response:"""
+JSON Response:"""
 
         try:
             # Use the Groq API client to generate a response from the AI model
