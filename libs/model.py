@@ -19,7 +19,7 @@ class Nutritionist:
     # Method to get nutritional advice based on a list of ingredients
     def get_advice_from_ingredients(self, ingredients):
         # Construct the prompt for the model
-        prompt = f"""You are a nutritionist dietitian. Based on the following ingredients, identify which ingredients are suitable and which are unsuitable for the user's health profile. Additionally, provide suggestions on how to make the food healthier by adding specific ingredients. Your response must be in valid JSON format with the following structure:
+        prompt = f"""You are a nutritionist dietitian. Based on the following ingredients, identify which ingredients are suitable and which are unsuitable for the user's health profile. Additionally, provide Health Tips on how to make the food healthier by adding specific ingredients or nutrional advice. Your response must be in valid JSON format with the following structure:
 
 {{
     "suitable_ingredients": [
