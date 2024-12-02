@@ -23,8 +23,8 @@ class Nutritionist:
 
 {{
     "suitable_ingredients": [
-        {{"ingredient": "ingredient1", "explanation": "Reason for suitability"}},
-        {{"ingredient": "ingredient2", "explanation": "Reason for suitability"}}
+        {{"explanation": "Reason for suitability", "ingredient": "ingredient1"}},
+        {{"explanation": "Reason for suitability", "ingredient": "ingredient2"}}
     ],
     "unsuitable_ingredients": [
         {{"ingredient": "ingredient3", "reason": "Reason for unsuitability"}},
