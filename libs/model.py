@@ -30,7 +30,7 @@ class Nutritionist:
         {{"ingredient": "ingredient3", "reason": "Reason for unsuitability"}},
         {{"ingredient": "ingredient4", "reason": "Reason for unsuitability"}}
     ],
-    "health_suggestions": [
+    "health_tips": [
         {{"suggestion": "Add ingredient5 for additional vitamins", "benefit": "Increases nutrient density"}},
         {{"suggestion": "Replace ingredient6 with a healthier alternative", "benefit": "Reduces unhealthy fats"}}
     ]
